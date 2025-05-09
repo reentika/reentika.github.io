@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport"
+    content = "width = device-width,
+    initial-scale=1.0"/>
+    <title>Newsletters</title>
+    <!-- css and js codes from swiper js -->
+
+    <link rel ="stylesheet" href="styles.css"/>
+
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- font for small stuff -> INTER -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- font for big stuff -> bebas neue -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="newsletters">
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar_logo">
+                <img src="/images/logo.png" alt="logo" class="logo" />
+            </a>
+              
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <ul class = "navbar__menu">
+                <li class="navbar__item">
+                    <a href="/projects.html" class="navbar__links">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="navbar__item">
+                    <a href="/about.html" class="navbar__links">
+                        Links 
+                    </a>
+                </li>
+
+                <li class="navbar__item">
+                    <a href="/newsletters.html" class="navbar__links">
+                        Newsletters
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="news_back">
+        <h2 class="news-title">Newsletters of the Year</h2>
+        <div class="card_container">
+          <div class="top-card">
+            <span class="big-number">1</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 1" class="poster">
+          </div>
+      
+          <div class="top-card">
+            <span class="big-number">2</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 2" class="poster">
+          </div>
+      
+          <div class="top-card">
+            <span class="big-number">3</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 3" class="poster">
+          </div>
+      
+          <div class="top-card">
+            <span class="big-number">4</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card">
+            <span class="big-number">5</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card">
+            <span class="big-number">6</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card">
+            <span class="big-number">7</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card">
+            <span class="big-number">8</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+          
+          <div class="top-card">
+            <span class="big-number">9</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card double-digit">
+            <span class="big-number double-digit">10</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card double-digit">
+            <span class="big-number double-digit">11</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+
+          <div class="top-card double-digit">
+            <span class="big-number double-digit">12</span>
+            <img src="images/newsletters/inProgress.png" alt="Poster 4" class="poster">
+          </div>
+          
+        </div>
+      </div>
+      
+      
+
+      
+      
+    <script src="app.js"></script>
+    <script>
+        document.querySelectorAll('.big-number').forEach(el => {
+            if (parseInt(el.textContent) >= 10) {
+              el.classList.add('double-digit');
+            }
+          });
+          
+    </script>
+      
+</body>
+
+
+</html>
