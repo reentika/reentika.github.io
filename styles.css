@@ -1,15 +1,6 @@
-/* general*/
-/* FADING */
-
-body {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-body.fade-out {
-  opacity: 0;
-}
-
+/* Author: Reentika Awasthi
+   Date of Creation: April 29, 2025
+   Purpose: Styles sheet for entire website and different sections within it*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -38,11 +29,19 @@ button {
 }
 
 
-/* Instead, apply background only to the actual containers: */
+/* background for the actual containers: */
 body {
   background-color: #101010;
 }
+
+/*--------------------------------------------------*/
+/*----------------INDEX-HOME-PAGE-------------------*/
+/*--------------------------------------------------*/
+
+
+
 /*-----------------NAV BAR----------------*/
+
 
 /*nav bar background*/
 .navbar{
@@ -70,7 +69,7 @@ body {
     
 }
 
-/*TOP LOGO IN NAV BAR*/
+/*top left hand side logo in nav bar/
 #navbar_logo{
 
     background-size: 100%;
@@ -87,7 +86,7 @@ body {
 
 
 
-/* menu in nav bar*/
+/* nav bar menu formatting*/
 .navbar__menu{
     display:flex;
     align-items:center;
@@ -99,7 +98,7 @@ body {
     height:80px;
 }
 
-/*link colors */
+/* coloring the linkes */
 .navbar__links{
     color:#fff;
     display:flex;
@@ -110,13 +109,13 @@ body {
     height: 100%;
 }
 
-/* when hovering*/
+/* hovering button */
 .navbar__links:hover{
     color:#b8b6b6;
     transition: all 0.3s ease;
 }
 
-/* phone -frindly version of nav bar*/
+/* phone friendly version of nav bar*/
 @media screen and (max-width:960px){
     .navbar__container{
         display:flex;
@@ -187,7 +186,7 @@ body {
         cursor: pointer;
     }
 
-    /*animates*/
+    /* animating the toggle bar to have the effect of "collapsing in" and out*/
 
     #mobile-menu.is-active .bar:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -206,6 +205,7 @@ body {
 
 /*-----------------MAIN-HERO-SECTION----------------*/
 
+
 /*background for literal everything*/
 .main {
     background-color: #141414;
@@ -213,6 +213,7 @@ body {
     justify-content: center;
 }
 
+/* formatting the container things  */
 .main__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -283,12 +284,13 @@ body {
     text-decoration: none;
 }
 
+/* hovering version of the button  */
 .main__btn:hover{
     background: linear-gradient(to right, #e0e0e0, #aaaaaa); /* darker gradient */
     transform: scale(1);
 }
 
-/*mobile friendly - version*/
+/*mobile friendly version of hero content*/
 @media screen and (max-width:768px){
     .main__content{
         text-align: center;
@@ -326,7 +328,7 @@ body {
 
 }
 
-/*--------------------------INTRODUCTION CARD-------------*/
+/*---------------------INTRODUCTION CARD-------------------*/
 
 /*rectangular card*/
 .intro-card {
@@ -349,7 +351,7 @@ body {
     object-fit: cover;
     display: block;
   }
-/*the fading thing*/
+/*the fading gradient thing connecting video and card*/
   .intro-card__gradient-overlay {
     position: absolute;
     top: 255px;
@@ -372,7 +374,7 @@ body {
     z-index: 1;
   }
   
-/*mobile friendly - card*/
+/*mobile friendly version of the  card*/
 @media screen and (max-width: 768px) {
     .main__container {
       display: flex;
@@ -457,7 +459,7 @@ body {
     color: #888888;
     font-weight: normal;
   }
-  /*just the more part lol*/
+  /* the more part*/
   em {
     font-style: italic;
     color: #aaaaaa;
@@ -476,7 +478,7 @@ body {
     }
   }
 
-  /*----- ABOUT ME BUTTON-----*/
+  /*----- ABOUT ME BUTTON ** Edit: renamed to "Connect"-----*/
   .about-me {
     position: absolute;
     top: 330px;
@@ -508,7 +510,8 @@ body {
   .about-me:hover img {
     background: #aaaaaa;
   }
-  
+
+/* mobile friendly  */
   @media screen and (max-width: 768px) {
     .about-me {
       font-size: 0.9rem;
@@ -525,9 +528,9 @@ body {
   
   
 
-  /*----------------------------------------------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------------------------------------------------*/
   /*-------------------------------------------------------PROJECTS PAGE-----------------------------------------------*/
-  /*----------------------------------------------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------------------------------------------------*/
 
   /* sliding bar css*/
 /* :root{
@@ -615,14 +618,14 @@ body {
 }
 
 
-/* PROJECTS PAGE - SHOW CARDS*/
+/* PROJECTS PAGE - "SHOW" CARDS*/
 /* The overall wrapper for all episode blocks */
 .episodes-container {
   max-width: 800px;
   margin: 2rem auto;
 }
 
-/* Each show's episode block — hidden by default */
+/* Each "show's episode" block — hidden by default */
 /* .episode-wrapper {
   display: none;
   opacity: 0;
@@ -744,7 +747,7 @@ body {
 }
 
 
-/* Responsive tweaks */
+/* mobile friendly */
 @media screen and (max-width: 600px) {
   .episode-card {
     flex-direction: column;
@@ -815,8 +818,8 @@ body {
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
-  /*-------------------------------------------------------ABOUT-----------------------------------------------*/
-  /*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------ABOUT-SOCIAL-LINKS------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
 
 .main-about{
   width: 100vw;
@@ -911,9 +914,9 @@ body {
 }
 
 
-/*----------------------------------------------------------------------------------------------------------------*/
-  /*-------------------------------------------------------NEWSLETTERS-----------------------------------------------*/
-  /*----------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------NEWSLETTERS-----------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------*/
   .news_back {
     background: linear-gradient(45deg, #001a33 0%, #101010 60%, #330000 100%);
     min-height: 200vh;
@@ -992,7 +995,7 @@ body {
   }
 
 
-  /* mobile */
+  /* mobile friendly */
 
   @media screen and (max-width: 768px) {
     .news_back {
