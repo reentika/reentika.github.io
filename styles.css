@@ -467,7 +467,7 @@ body {
   @media screen and (max-width: 768px) {
     .intro-card__content {
       flex-direction: column;
-      margin-top: 4rem;
+      margin-top: 10rem;
     }
   
     .intro, .sidebar {
