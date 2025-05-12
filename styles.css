@@ -839,14 +839,14 @@ body {
   letter-spacing: 0.5px;
 }
 
-.icons{
+.s{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.icon{
+.{
   height: 10vw;
   min-height: 8.4rem;
   max-height: 20rem;
@@ -857,7 +857,7 @@ body {
   position: relative;
 }
 
-.icon img{
+. img{
   border-radius: 0.4rem ;
   transition: border 0.2s ease;
   width: 100%;
@@ -865,19 +865,19 @@ body {
   object-fit: contain;
 }
 
-.icon p{
+. p{
   text-align: center;
   color:#b3b3b3;
   margin-top: 0.5rem;
   font-size: 20px;
 }
 
-.icon:hover img {
+.:hover img {
   border: 2px solid #fff;
   transform: none;
 }
 
-.icon:hover p {
+.:hover p {
   color: #fff;
 }
 
@@ -897,14 +897,14 @@ body {
     margin-bottom: 1.5rem;
   }
 
-  .icons {
+  .s {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     justify-items: center; /* center items in each grid cell */
   }
 
-  .icon {
+  . {
     width: 40vw; 
     height: auto;
     margin: 0 auto;
@@ -912,7 +912,7 @@ body {
   }
 
   .icon p {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
