@@ -69,7 +69,7 @@ body {
     
 }
 
-/*top left hand side logo in nav bar/
+/*top left hand side logo in nav bar*/
 #navbar_logo{
 
     background-size: 100%;
@@ -81,7 +81,6 @@ body {
     align-items: center;
     cursor:pointer;
     text-decoration: none;
-    font-size: 2rem;
 }
 
 
