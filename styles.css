@@ -545,12 +545,12 @@ body {
 }
 
 
-.apsc100, .learning, .tks{
+.apsc100, .learning, .tks, .sailbot{
     padding-top:5%;
     color:white;
 }
 
-.apscTitle, .learningTitle, .tksTitle{
+.sailbotTitle, .apscTitle, .learningTitle, .tksTitle{
     font-size: 20px;
     line-height: 14px;
     font-weight: 500;
@@ -995,6 +995,7 @@ body {
     color: white;
     font-weight: bold;
   }
+  
   
 
 
