@@ -1,0 +1,70 @@
+---
+// ============================================================
+// ABOUT.ASTRO — Links page ("Where can you find me?")
+// ============================================================
+// HOW IT WORKS:
+//   Displays a row of social media icons with labels.
+//   Each icon links out to an external profile.
+//
+// TO EDIT:
+//   - Add a new icon → copy one <div class="icon"> block and
+//     update the href, image src, and label <p>
+//   - Remove an icon → delete its <div class="icon"> block
+//   - Update a link → change the href in the <a> tag
+//   - Swap an icon image → replace the file in public/images/icons/
+
+import Layout from "../components/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Layout title="Links">
+  <Navbar />
+
+  <div class="main-about">
+    <h1>Where can you find me?</h1>  <!-- ← Edit page heading -->
+
+    <div class="icons">
+
+      <!-- Medium -->
+      <div class="icon">
+        <a href="https://reentikaawasthi.medium.com/" target="_blank">
+          <img src="/images/icons/medium.png" alt="medium">
+        </a>
+        <p>Writing</p>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="icon">
+        <a href="https://www.linkedin.com/in/reentika-awasthi-31718b223/" target="_blank">
+          <img src="/images/icons/linkedin.png" alt="linkedin">
+        </a>
+        <p>Professional Network</p>
+      </div>
+
+      <!-- GitHub -->
+      <div class="icon">
+        <a href="https://github.com/reentika" target="_blank">
+          <img src="/images/icons/github.png" alt="github">
+        </a>
+        <p>Projects & Code</p>
+      </div>
+
+      <!-- YouTube -->
+      <div class="icon">
+        <a href="https://www.youtube.com/@reentika" target="_blank">
+          <img src="/images/icons/youtube.png" alt="youtube">
+        </a>
+        <p>Video Content</p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="icon">
+        <a href="https://www.instagram.com/reentika.a/" target="_blank">
+          <img src="/images/icons/instagram.png" alt="instagram">
+        </a>
+        <p>Personal Network</p>
+      </div>
+
+    </div>
+  </div>
+</Layout>

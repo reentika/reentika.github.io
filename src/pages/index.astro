@@ -1,17 +1,86 @@
 ---
+// ============================================================
+// INDEX.ASTRO — Home page (Netflix-style hero card)
+// ============================================================
+// HOW IT WORKS:
+//   Left side: your name + tagline + "Continue reading" button.
+//   Right side: intro card with a YouTube video, gradient
+//   overlay, bio text, and a sidebar with quick-glance stats.
+//
+// TO EDIT:
+//   - Your name/tagline → h1, h2, p in .main__content below
+//   - Intro video → swap the YouTube embed URL in the <iframe>
+//   - Bio paragraph → edit the <p> inside .intro
+//   - Sidebar stats → edit the three <p> tags inside .sidebar
+//   - "Continue reading" destination → change href in main__btn
+//   - "Connect" button destination → change href in about-me btn
 
+import Layout from "../components/Layout.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Reentika's Website">
+  <Navbar />
+
+  <main class="main">
+    <div class="main__container">
+
+      <!-- LEFT: Name + tagline + CTA button -->
+      <div class="main__content">
+        <h1>Reentika</h1>    
+        <h2>Awasthi</h2>     
+        <p>An aspiring innovator</p>  <!-- ← Edit tagline -->
+
+        <button class="main__btn" onclick="window.location.href='/projects/'">
+          Continue reading
+        </button>
+      </div>
+
+      <!-- RIGHT: Intro card -->
+      <div class="main__media">
+        <div class="intro-card">
+
+          <!-- Video at top of card — swap YouTube ID to change video -->
+          <iframe
+            class="intro-card__video"
+            src="https://www.youtube.com/embed/O-a0DtAEtbA?autoplay=1&mute=1&loop=1&playlist=O-a0DtAEtbA"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          ></iframe>
+
+          <!-- Gradient that fades video into card content -->
+          <div class="intro-card__gradient-overlay"></div>
+
+          <div class="intro-card__content">
+
+            <!-- Bio + Connect button -->
+            <div class="intro">
+              <!-- "Connect" button overlaid on the card — links to /about -->
+              <button class="about-me" onclick="window.location.href='/about'">
+                <img src="/images/play.png" alt="Play Icon" width="20" height="20" />
+                Connect
+              </button>
+
+              <!-- Bio text — edit freely -->
+              <p>
+                Hey! I'm a second-year Computer Engineering student at UBC, passionate about building innovative
+                solutions at the crossroads of tech and entrepreneurship. At UBC, I've been part of the Electrical
+                Drive Team with UBC Sailbot and I also volunteer with IEEE to help spark student interest in STEM.
+              </p>
+            </div>
+
+            <!-- Netflix-style sidebar stats — edit labels/values freely -->
+            <div class="sidebar">
+              <p><span class="label">Hobbies:</span> Running, Cooking, Music, <em>more</em></p>
+              <p><span class="label">Interests:</span> Wellness, TV, Computers</p>
+              <p><span class="label">This person is:</span> Driven, Happy</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</Layout>

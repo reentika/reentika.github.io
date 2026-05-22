@@ -1,0 +1,167 @@
+---
+// ============================================================
+// PROJECTS.ASTRO — Projects page (Netflix-style carousels)
+// ============================================================
+// HOW IT WORKS:
+//   Reads all project data from src/data/projects.js and
+//   renders one horizontal Swiper carousel per section.
+//   Clicking a card opens a modal with links/videos for
+//   that project. Clicking the overlay or × closes it.
+//
+// TO EDIT:
+//   - Add/edit/remove projects → src/data/projects.js
+//   - Carousel behaviour (speed, slides visible) → Swiper
+//     config in the <script> block at the bottom
+//   - Modal card layout → .episode-wrapper styles in global.css
+
+import Layout from "../components/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import { projectSections } from "../data/projects.js";
+---
+
+<Layout title="Projects">
+  <Navbar />
+
+  <!-- Swiper loaded via CDN (must stay as CDN — npm version conflicts with Astro) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" is:inline></script>
+
+  <main class="projects">
+
+    <!-- Dark overlay shown behind the modal when a project is open -->
+    <div class="modal-overlay"></div>
+
+    <!-- ── CAROUSELS ──────────────────────────────────────────
+         One <section> per group in projects.js.
+         Each gets its own Swiper instance (see script below).    -->
+    {projectSections.map((section) => (
+      <section class={section.className}>
+        <h2 class={section.titleClass}>{section.title}</h2>
+
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {section.projects.map((project) => (
+              <div class="swiper-slide">
+                <!-- Clicking a card opens its modal via data-show -->
+                <a href={`#${project.id}`} data-show={project.id}>
+                  <img src={project.image} alt={project.title} />
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <!-- Arrow buttons + scrollbar (styled in global.css) -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </section>
+    ))}
+
+    <!-- ── PROJECT MODALS ─────────────────────────────────────
+         One hidden modal per project. Shown when its card is
+         clicked. Each modal lists that project's links/videos. -->
+    <div class="episodes-container">
+      {projectSections.flatMap((section) =>
+        section.projects.map((project) => (
+          <div id={project.id} class="episode-wrapper">
+
+            <!-- Close button (top right of modal) -->
+            <button class="close-btn">×</button>
+
+            <h2>{project.title}</h2>
+
+            {/* Optional description shown above the links */}
+            {project.description && <p>{project.description}</p>}
+
+            {/* Render each link — video embed or external link card */}
+            {project.links.map((link) =>
+              link.type === "video" ? (
+                /* Embedded YouTube video card */
+                <div class="episode-card">
+                  <iframe
+                    class="responsive-video"
+                    src={link.embedUrl}
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                  ></iframe>
+                  <div class="episode-info">
+                    <h3>{link.label}</h3>
+                    <p>{link.description}</p>
+                  </div>
+                </div>
+              ) : (
+                /* External link card (PDF, GitHub, etc.) */
+                <a href={link.url} target="_blank" class="episode-card">
+                  <img src={link.image} alt={link.label} />
+                  <div class="episode-info">
+                    <h3>{link.label}</h3>
+                    <p>{link.description}</p>
+                  </div>
+                </a>
+              )
+            )}
+
+          </div>
+        ))
+      )}
+    </div>
+
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      // ── SWIPER INIT ─────────────────────────────────────────
+      // Each .swiper gets its own instance so arrows are scoped
+      // to their own row. Edit options here to change behaviour.
+      document.querySelectorAll(".swiper").forEach((el) => {
+        new Swiper(el, {
+          direction: "horizontal",
+          loop: true,
+          slidesPerView: 3,   // ← number of cards visible at once
+          spaceBetween: 10,   // ← gap between cards (px)
+          freeMode: true,
+          navigation: {
+            nextEl: el.querySelector(".swiper-button-next"),
+            prevEl: el.querySelector(".swiper-button-prev"),
+          },
+        });
+      });
+
+      // ── MODAL LOGIC ─────────────────────────────────────────
+      const cards       = document.querySelectorAll("[data-show]");
+      const wrappers    = document.querySelectorAll(".episode-wrapper");
+      const overlay     = document.querySelector(".modal-overlay");
+      const closeButtons = document.querySelectorAll(".close-btn");
+
+      function closeAllModals() {
+        wrappers.forEach((w) => w.classList.remove("show"));
+        overlay?.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Open modal when a project card is clicked
+      cards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          e.preventDefault();
+          const id = card.getAttribute("data-show");
+          closeAllModals();
+          document.getElementById(id)?.classList.add("show");
+          overlay?.classList.add("active");
+          document.body.style.overflow = "hidden"; // prevent background scroll
+        });
+      });
+
+      // Close via × button, overlay click, or Escape key
+      closeButtons.forEach((btn) => btn.addEventListener("click", closeAllModals));
+      overlay?.addEventListener("click", closeAllModals);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAllModals();
+      });
+
+    });
+  </script>
+
+</Layout>

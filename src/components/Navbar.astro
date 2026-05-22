@@ -1,0 +1,54 @@
+<!-- ============================================================ -->
+<!-- NAVBAR.ASTRO — Shared navigation bar                         -->
+<!-- ============================================================ -->
+<!-- HOW IT WORKS:
+       Imported and dropped into every page via <Navbar />.
+       On desktop: horizontal links on the right.
+       On mobile (<960px): collapses into a hamburger menu.
+
+     TO EDIT:
+       - Add/remove nav links → edit the <ul> items below
+       - Logo image → swap /images/logo.png in public/images/
+       - Mobile breakpoint → change max-width in global.css navbar section -->
+
+<nav class="navbar">
+  <div class="navbar__container">
+
+    <!-- Logo (top left) — links back to home -->
+    <a href="/" id="navbar_logo">
+      <img src="/images/logo.png" alt="logo" class="logo" />
+    </a>
+
+    <!-- Hamburger icon (mobile only) -->
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <!-- Nav links — add new <li> here to add a page -->
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="/projects" class="navbar__links">Projects</a>
+      </li>
+      <li class="navbar__item">
+        <a href="/about" class="navbar__links">Links</a>
+      </li>
+      <li class="navbar__item">
+        <a href="/newsletters" class="navbar__links">Newsletters</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<script>
+  // Toggles the hamburger menu open/closed on mobile
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navMenu = document.querySelector(".navbar__menu");
+
+  mobileMenu?.addEventListener("click", () => {
+    mobileMenu.classList.toggle("is-active");
+    navMenu?.classList.toggle("active");
+  });
+</script>

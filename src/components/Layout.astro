@@ -1,0 +1,34 @@
+---
+// ============================================================
+// LAYOUT.ASTRO — Base HTML wrapper used by every page
+// ============================================================
+// HOW IT WORKS:
+//   Every page imports this and passes a `title` prop.
+//   The <slot /> is where each page's content gets injected.
+//
+// TO EDIT:
+//   - Page tab title → change the `title` prop default below
+//   - Fonts → swap the Google Fonts links in <head>
+//   - Global styles → edit src/styles/global.css
+
+import "../styles/global.css";
+
+const { title = "Reentika Awasthi" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <!-- Fonts: Inter (body) + Bebas Neue (display) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  </head>
+
+  <body>
+    <!-- Page content from each .astro file slots in here -->
+    <slot />
+  </body>
+</html>
