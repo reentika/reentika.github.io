@@ -23,6 +23,108 @@
 
 export const projectSections = [
 
+    // ── SELF-LEARNED PROJECTS ────────────────────────────────────
+  {
+    title: "Projects for Self-Learning & Exploration",
+    className: "learning",
+    titleClass: "tksTitle",
+    projects: [
+      {
+        id: "phoenix",
+        title: "Operation Phoenix: A Personal Fitness Tracker",
+        image: "/images/self/phoenix.png",
+        description: " 'Symbolically, the phoenix represents rebirth, resilience, transformation, and rising from adversity,' which is why I chose this name for my fitness tracker. This project was a personal one that I created to track my workouts each week and get reminders to drink water and eat timely meals.",
+        links: [
+          {
+            label: "Website Link",
+            image: "/images/thumbnails/website.png",
+            description: "The actual website for this project.",
+            url: "https://reentika.github.io/operation-phoenix/",
+          },
+          {
+            label: "Code",
+            image: "/images/thumbnails/code.png",
+            description: "This link provides the code used for this project.",
+            url: "https://github.com/reentika/operation-phoenix.git",
+          },
+        ],
+      },
+      
+      {
+        id: "perry",
+        title: "Perry",
+        image: "/images/self/perry.png",
+        description: "This small project was part of Cougar's STEM Outreach Club, the STEM Club at Killarney Secondary School. The intent was to engage youth with STEM projects because they do not always have to be complicated!",
+        links: [
+          {
+            label: "Video - How it works",
+            type: "video", // ← embedded YouTube, not a link card
+            embedUrl: "https://www.youtube.com/embed/cu8ESNC1tiw?autoplay=1&mute=1&loop=1&playlist=cu8ESNC1tiw",
+            description: "This is Perry at the club fair!",
+          },
+          {
+            label: "Code",
+            image: "/images/thumbnails/code.png",
+            description: "This link provides the code used for this project.",
+            url: "https://github.com/reentika/CSOC-",
+          },
+        ],
+      },
+      {
+        id: "nlp",
+        title: "Language Detection Model",
+        image: "/images/self/NLP.png",
+        links: [
+          {
+            label: "Article",
+            image: "/images/thumbnails/article.png",
+            description: "This article goes through the process of creating a language detection model step by step.",
+            url: "https://reentikaawasthi.medium.com/language-detection-model-using-nlp-580e411e4bcc",
+          },
+          {
+            label: "Video Playlist",
+            image: "/images/thumbnails/video.png",
+            description: "This playlist walks through the entire process of creating this language detection model.",
+            url: "https://www.youtube.com/watch?v=FQYilmEvxNg&list=PLcosB43agtWyVzHf9Bot4YV13ptxyYncc",
+          },
+          {
+            label: "Code",
+            image: "/images/thumbnails/code.png",
+            description: "This link provides the code for this model.",
+            url: "https://github.com/reentika/lang-detection-model",
+          },
+        ],
+      },
+      {
+        id: "keychain",
+        title: "Coca Cola Keychain",
+        image: "/images/self/keychain.png",
+        description: "As a superfan of Coca Cola, I chose to create this keychain for print for one of my courses. This was created on Onshape.",
+        links: [
+          {
+            label: "Onshape Link",
+            image: "/images/thumbnails/3d.png",
+            description: "This is the modelled version of the keychain.",
+            url: "https://cad.onshape.com/documents/d55d784451626357aac3ff8f/w/b53afa9a53b3baf4d3f563fa/e/ca5c2144d54e3eb4b6d36a56?renderMode=0&uiState=6819a344709a361113147031",
+          },
+        ],
+      },
+      {
+        id: "diggy",
+        title: "Diggy Bank",
+        image: "/images/self/diggybank.png",
+        links: [
+          {
+            label: "Code Link",
+            image: "/images/thumbnails/code.png",
+            description: "This is the first code for this created in 2018. I will be re-doing this in Summer 2025!",
+            url: "https://github.com/reentika/diggy-bank",
+          },
+        ],
+      },
+    ],
+  },
+
   // ── UBC SAILBOT ─────────────────────────────────────────────
   {
     title: "UBC Sailbot Work",
@@ -174,87 +276,6 @@ export const projectSections = [
             image: "/images/slide.png",
             description: "This is a reflective article that goes in-depth about APSC 100/101 concepts applied.",
             url: "#",
-          },
-        ],
-      },
-    ],
-  },
-
-  // ── SELF-LEARNED PROJECTS ────────────────────────────────────
-  {
-    title: "Self-Learned Projects",
-    className: "learning",
-    titleClass: "tksTitle",
-    projects: [
-      {
-        id: "perry",
-        title: "Perry",
-        image: "/images/self/perry.png",
-        description: "This small project was part of Cougar's STEM Outreach Club, the STEM Club at Killarney Secondary School. The intent was to engage youth with STEM projects because they do not always have to be complicated!",
-        links: [
-          {
-            label: "Video - How it works",
-            type: "video", // ← embedded YouTube, not a link card
-            embedUrl: "https://www.youtube.com/embed/cu8ESNC1tiw?autoplay=1&mute=1&loop=1&playlist=cu8ESNC1tiw",
-            description: "This is Perry at the club fair!",
-          },
-          {
-            label: "Code",
-            image: "/images/thumbnails/code.png",
-            description: "This link provides the code used for this project.",
-            url: "https://github.com/reentika/CSOC-",
-          },
-        ],
-      },
-      {
-        id: "nlp",
-        title: "Language Detection Model",
-        image: "/images/self/NLP.png",
-        links: [
-          {
-            label: "Article",
-            image: "/images/thumbnails/article.png",
-            description: "This article goes through the process of creating a language detection model step by step.",
-            url: "https://reentikaawasthi.medium.com/language-detection-model-using-nlp-580e411e4bcc",
-          },
-          {
-            label: "Video Playlist",
-            image: "/images/thumbnails/video.png",
-            description: "This playlist walks through the entire process of creating this language detection model.",
-            url: "https://www.youtube.com/watch?v=FQYilmEvxNg&list=PLcosB43agtWyVzHf9Bot4YV13ptxyYncc",
-          },
-          {
-            label: "Code",
-            image: "/images/thumbnails/code.png",
-            description: "This link provides the code for this model.",
-            url: "https://github.com/reentika/lang-detection-model",
-          },
-        ],
-      },
-      {
-        id: "keychain",
-        title: "Coca Cola Keychain",
-        image: "/images/self/keychain.png",
-        description: "As a superfan of Coca Cola, I chose to create this keychain for print for one of my courses. This was created on Onshape.",
-        links: [
-          {
-            label: "Onshape Link",
-            image: "/images/thumbnails/3d.png",
-            description: "This is the modelled version of the keychain.",
-            url: "https://cad.onshape.com/documents/d55d784451626357aac3ff8f/w/b53afa9a53b3baf4d3f563fa/e/ca5c2144d54e3eb4b6d36a56?renderMode=0&uiState=6819a344709a361113147031",
-          },
-        ],
-      },
-      {
-        id: "diggy",
-        title: "Diggy Bank",
-        image: "/images/self/diggybank.png",
-        links: [
-          {
-            label: "Code Link",
-            image: "/images/thumbnails/code.png",
-            description: "This is the first code for this created in 2018. I will be re-doing this in Summer 2025!",
-            url: "https://github.com/reentika/diggy-bank",
           },
         ],
       },

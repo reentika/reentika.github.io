@@ -1,0 +1,106 @@
+---
+// ============================================================
+// NEWSLETTERS.ASTRO — Newsletters page (Top 10 style grid)
+// ============================================================
+// HOW IT WORKS:
+//   Reads all data from src/data/newsletters.js and renders
+//   the numbered poster grid + popup modals automatically.
+//
+// TO ADD A NEW NEWSLETTER:
+//   → Only edit src/data/newsletters.js — no need to touch this file
+//   1. Find the next issue with ready: false
+//   2. Set ready: true
+//   3. Fill in poster, subtitle, and content fields
+// ============================================================
+
+import Layout from "../components/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import { newsletters } from "../data/newsletters.js";
+---
+
+<Layout title="Newsletters">
+  <Navbar />
+
+  <div class="news_back">
+    <h2 class="news-title">Newsletters of the Year</h2>
+
+    <!-- ── POSTER GRID ───────────────────────────────────────── -->
+    <div class="card_container">
+      {newsletters.map((issue) => (
+        <div class={`top-card ${issue.number >= 10 ? "double-digit" : ""}`}>
+          <span class={`big-number ${issue.number >= 10 ? "double-digit" : ""}`}>
+            {issue.number}
+          </span>
+
+          {issue.ready ? (
+            /* Clickable poster — opens the modal */
+            <a href="javascript:void(0)" class="poster-link" data-open={issue.id}>
+              <img src={issue.poster} alt={`Newsletter ${issue.number}`} class="poster" />
+            </a>
+          ) : (
+            /* Not ready yet — just shows the placeholder */
+            <img src="/images/newsletters/inProgress.png" alt="Coming soon" class="poster" />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ── NEWSLETTER POPUPS ─────────────────────────────────────
+       One popup per issue. Only rendered for ready issues.      -->
+  {newsletters.filter(i => i.ready).map((issue) => (
+    <div id={issue.id} class="newsletter-popup">
+      <div class="newsletter-content">
+        <button class="close-btn">&times;</button>
+        <h1>{issue.month}</h1>
+        <h3>{issue.subtitle}</h3>
+        <br />
+        <Fragment set:html={issue.content} />
+      </div>
+    </div>
+  ))}
+
+  <!-- Dark overlay behind open popups -->
+  <div class="newsletter-overlay"></div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.querySelector(".newsletter-overlay");
+
+      function openPopup(id) {
+        const popup = document.getElementById(id);
+        if (!popup) return;
+        popup.style.display = "block";
+        overlay.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeAll() {
+        document.querySelectorAll(".newsletter-popup").forEach(p => p.style.display = "none");
+        overlay.style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      // Open on poster click
+      document.querySelectorAll("[data-open]").forEach(link => {
+        link.addEventListener("click", () => openPopup(link.getAttribute("data-open")));
+      });
+
+      // Close via × button, overlay, or Escape
+      document.querySelectorAll(".close-btn").forEach(btn => btn.addEventListener("click", closeAll));
+      overlay.addEventListener("click", closeAll);
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeAll(); });
+    });
+  </script>
+</Layout>
+
+<style>
+  /* Overlay behind open popup */
+  .newsletter-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+  }
+</style>
